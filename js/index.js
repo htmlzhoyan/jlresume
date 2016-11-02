@@ -118,7 +118,7 @@
 	  	  var apiT = $(this).attr('id');
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	      mock
+	     
 	     $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/project.json',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
