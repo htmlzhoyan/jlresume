@@ -68,7 +68,7 @@
 		$('#mainContent').show()
 	  $('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	  $.getJSON('/mock/skill',{},function(response){
+	  $.getJSON('https://github.com/htmlzhoyan/jlresume/tree/gh-pages/mock/skill.json',{},function(response){
 	    var html = '';
 	    for(var i=0;i<response.length;i++){
 	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
@@ -104,7 +104,7 @@
 	  $('#footer div').eq(0).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
-	     $.getJSON('/mock/skill',{},function(response){
+	     $.getJSON('https://github.com/htmlzhoyan/jlresume/tree/gh-pages/mock/skill.json',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
@@ -118,8 +118,8 @@
 	  	  var apiT = $(this).attr('id');
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	      
-	     $.getJSON('/mock/project',{},function(response){
+	      mock
+	     $.getJSON('https://github.com/htmlzhoyan/jlresume/tree/gh-pages/mock/project.json',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].name+'-------------'+response[i].category+'</li>'
@@ -133,7 +133,7 @@
 	  $('#footer div').eq(2).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})  
-	    $.getJSON('/mock/work',{},function(response){
+	    $.getJSON('https://github.com/htmlzhoyan/jlresume/tree/gh-pages/mock/work.json',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+response[i].name+'</li>'
@@ -148,7 +148,7 @@
 	  $('#footer div').eq(3).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
-	     $.getJSON('/mock/interest',{},function(response){
+	     $.getJSON('https://github.com/htmlzhoyan/jlresume/tree/gh-pages/mock/interest.json',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
