@@ -68,7 +68,7 @@
 		$('#mainContent').show()
 	  $('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	  $.post('/mock/skill',{},function(response){
+	  $.getJSON('/mock/skill',{},function(response){
 	    var html = '';
 	    for(var i=0;i<response.length;i++){
 	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
@@ -104,7 +104,7 @@
 	  $('#footer div').eq(0).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
-	     $.post('/mock/skill',{},function(response){
+	     $.getJSON('/mock/skill',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
@@ -119,7 +119,7 @@
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
 	      
-	     $.post('/mock/project',{},function(response){
+	     $.getJSON('/mock/project',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].name+'-------------'+response[i].category+'</li>'
@@ -133,7 +133,7 @@
 	  $('#footer div').eq(2).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})  
-	    $.post('/mock/work',{},function(response){
+	    $.getJSON('/mock/work',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+response[i].name+'</li>'
@@ -148,7 +148,7 @@
 	  $('#footer div').eq(3).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
-	     $.post('/mock/interest',{},function(response){
+	     $.getJSON('/mock/interest',{},function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
@@ -161,7 +161,7 @@
 	  $('#footer div').eq(4).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	       $.post('/mock/myself',{},function(response){  
+	       $.getJSON('/mock/myself',{},function(response){  
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="mys"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
@@ -1656,9 +1656,9 @@
 	    return $.ajax(parseArguments.apply(null, arguments))
 	  }
 
-	  $.post = function(/* url, data, success, dataType */){
+	  $.getJSON = function(/* url, data, success, dataType */){
 	    var options = parseArguments.apply(null, arguments)
-	    options.type = 'POST'
+	    options.type = 'getJSON'
 	    return $.ajax(options)
 	  }
 
