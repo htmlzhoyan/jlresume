@@ -161,7 +161,7 @@
 	  $('#footer div').eq(4).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	       $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/myself',{},function(response){  
+	       $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/myself.json',{},function(response){  
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="mys"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
