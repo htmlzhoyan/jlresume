@@ -66,20 +66,17 @@
 
 	$('#enter').tap(function(){
 		$('#mainContent').show()
-	  $('.swiper-container').hide()
+	  	$('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	     $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
-	    var html = '';
-	    for(var i=0;i<response.length;i++){
-	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
-	    }
-	    var myScroll = new IScroll('#wrapper', {mouseWheel:true});
-	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);  
-	   
+	   	 var html = '';
+	     $('#footer div').css({'background':'#444','color':'#fff'})
+	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
+	    $.getJSON('./mock/skill.json?rand='+Math.random(),function(response){
 	    
-	  })
-
-	  	
+	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
+	      }
+	      $('#scroller ul').html(html);
+	    })
 
 
 
