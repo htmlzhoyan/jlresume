@@ -95,19 +95,8 @@
 	    SwiperAnimate.swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 	  } 
 	}) 
-	  $('#footer div').eq(0).tap(function(){
-	     $('#footer div').css({'background':'#444','color':'#fff'})
-	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
-	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/skill.json?rand='+Math.random(),function(response){
-	      var html = '';
-	      for(var i=0;i<response.length;i++){
-	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
-	      }
-	      $('#scroller ul').html(html);
-	    })
-	  }); 
+	 
 	  $('#footer div').eq(1).tap(function(){
-	  	alert(1)
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
 	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/project.json?rand='+Math.random(),function(response){
@@ -119,9 +108,19 @@
 	      $('#scroller ul').html(html);
   
 	    })
+	  }); 
+	   $('#footer div').eq(0).tap(function(){
+	     $('#footer div').css({'background':'#444','color':'#fff'})
+	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
+	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/skill.json?rand='+Math.random(),function(response){
+	      var html = '';
+	      for(var i=0;i<response.length;i++){
+	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
+	      }
+	      $('#scroller ul').html(html);
+	    })
 	  });  
 	  $('#footer div').eq(2).tap(function(){
-	  		alert(2)
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})  
 	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/work.json?rand='+Math.random(),function(response){
@@ -137,7 +136,6 @@
 	    })
 	  });
 	  $('#footer div').eq(3).tap(function(){
-	  		alert(3)
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
 	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/interest.json?rand='+Math.random(),function(response){
@@ -151,7 +149,6 @@
 	    })
 	  });
 	  $('#footer div').eq(4).tap(function(){
-	  		alert(4)
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
 	    $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/myself.json?rand='+Math.random(),function(response){
