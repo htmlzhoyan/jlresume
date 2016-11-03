@@ -68,17 +68,20 @@
 		$('#mainContent').show()
 	  	$('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	   	 var html = '';
-	     $('#footer div').eq(0).css({'background':'#e9e9e9','color':'#31B020'});
+	
+	    $('#footer div').eq(0).css({'background':'#e9e9e9','color':'#31B020'});
 	     
-	    $.getJSON('./mock/skill.json?rand='+Math.random(),function(response){
-	    
-	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
-	      }
-	      $('#scroller ul').html(html);
-	    })
+	    $.getJSON('./mock/skill.json',function(response){
+	      var html = '';
+	      for(var i=0;i<response.length;i++){
 
+	       html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div><span class="pics">'+response[i].category+'-------------'+response[i].name+'</span></li>'
+	     } 
+	       $('#scroller ul').html(html);
+			var myScroll = new IScroll('#wrapper', {mouseWheel:true});
+	    	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); 		    
 
+		})
 
 	})
 
@@ -102,7 +105,7 @@
 	   	  var html = '';
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
-	    $.getJSON('./mock/skill.json?rand='+Math.random(),function(response){
+	    $.getJSON('./mock/skill.json',function(response){
 	    
 	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
 	      }
@@ -113,7 +116,7 @@
 	  	  var html = '';
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	    $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
+	    $.getJSON('./mock/project.json',function(response){
 	    
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].category+'</li>'
@@ -126,7 +129,7 @@
 	  	   var html = '';
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})  
-	    $.getJSON('./mock/work.json?rand='+Math.random(),function(response){
+	    $.getJSON('./mock/work.json',function(response){
 	   
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+response[i].name+'</li>'
@@ -141,7 +144,7 @@
 	  $('#footer div').eq(3).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
-	    $.getJSON('./mock/interest.json?rand='+Math.random(),function(response){
+	    $.getJSON('./mock/interest.json',function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
@@ -154,7 +157,7 @@
 	  $('#footer div').eq(4).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})   
-	    $.getJSON('./mock/myself.json?rand='+Math.random(),function(response){
+	    $.getJSON('./mock/myself.json',function(response){
 	      var html = '';
 	      for(var i=0;i<response.length;i++){
 	        html+='<li>'+'<div class="mys"><img src='+response[i].img+'></div>'+response[i].name+'</li>'
