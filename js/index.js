@@ -107,7 +107,7 @@
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
 	    $.getJSON('./mock/skill.json',function(response){
 	    
-	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
+	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div><span class="pics">'+response[i].category+'-------------'+response[i].name+'</span></li>'
 	      }
 	      $('#scroller ul').html(html);
 	    })
@@ -119,7 +119,7 @@
 	    $.getJSON('./mock/project.json',function(response){
 	    
 	      for(var i=0;i<response.length;i++){
-	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].category+'</li>'
+	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div><span class="pros">'+response[i].category+'</span></li>'
 	      }
 	      $('#scroller ul').html(html);
   
