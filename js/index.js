@@ -75,13 +75,8 @@
 	    }
 	    $('#scroller ul').html(html);
 		var myScroll = new IScroll('#wrapper', {mouseWheel:true});
-	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);  
-	   
-	    
-	  })
-
-	    
-	 
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); 	    
+	  })	 
 	})
 
 	var Swiper = __webpack_require__(14);
