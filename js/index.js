@@ -68,7 +68,23 @@
 		$('#mainContent').show()
 	  $('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	  	 
+	   $.post('/api/skill',{},function(response){
+	    var html = '';
+	    for(var i=0;i<response.length;i++){
+	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
+	    }
+	    $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
+
+	    var myScroll = new IScroll('#wrapper', {mouseWheel:true});
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);  
+	   
+	    
+	  })
+
+	  	
+
+
+
 	})
 
 	var Swiper = __webpack_require__(14);
