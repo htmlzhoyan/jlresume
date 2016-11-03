@@ -9,7 +9,7 @@
 	{
 		"img":"images/2-skill.jpg",
 		"category":"框架",
-		"name":"熟悉Jquery、Zepto、AngularJs、Recat、Avalon、Mui、Yo、Ionic等",
+		"name":"熟悉Jquery、Zepto、AngularJs、Recat、Mui、Ionic等",
 		"time":"2年",
 		"level":"熟悉"
 	},
@@ -17,7 +17,7 @@
 	{
 		"img":"images/3-skill.jpg",
 		"category":"类库",
-		"name":"熟悉Swiper、Iscroll、bootstrap等",
+		"name":"熟悉Swiper、Iscroll、bootstrap、canvas等",
 		"time":"2年",
 		"level":"熟悉"
 	},
