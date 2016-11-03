@@ -97,21 +97,7 @@
 	  onSlideChangeEnd: function(swiper){ 
 	    SwiperAnimate.swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 	  } 
-	}) 
-	 
-	  $('#footer div').eq(1).tap(function(){
-	  	  var html = '';
-	     $('#footer div').css({'background':'#444','color':'#fff'})
-	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
-	    $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
-	    
-	      for(var i=0;i<response.length;i++){
-	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].name+'-------------'+response[i].category+'</li>'
-	      }
-	      $('#scroller ul').html(html);
-  
-	    })
-	  }); 
+	}) 	 
 	   $('#footer div').eq(0).tap(function(){
 	   	  var html = '';
 	     $('#footer div').css({'background':'#444','color':'#fff'})
@@ -121,6 +107,19 @@
 	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
 	      }
 	      $('#scroller ul').html(html);
+	    })
+	  }); 
+	   $('#footer div').eq(1).tap(function(){
+	  	  var html = '';
+	     $('#footer div').css({'background':'#444','color':'#fff'})
+	      $(this).css({'background':'#e9e9e9','color':'#31B020'}) 
+	    $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
+	    
+	      for(var i=0;i<response.length;i++){
+	        html+='<li>'+'<div class="pros"><img src='+response[i].img+'></div>'+response[i].category+'</li>'
+	      }
+	      $('#scroller ul').html(html);
+  
 	    })
 	  });  
 	  $('#footer div').eq(2).tap(function(){
