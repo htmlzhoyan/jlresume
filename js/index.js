@@ -110,8 +110,6 @@
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
 	      }
 	      $('#scroller ul').html(html);
-
-	     
 	    })
 	  }); 
 	  $('#footer div').eq(1).tap(function(){
@@ -124,8 +122,7 @@
 
 	      }
 	      $('#scroller ul').html(html);
-
-	     
+  
 	    })
 	  });  
 	  $('#footer div').eq(2).tap(function(){
