@@ -100,7 +100,6 @@
 	    SwiperAnimate.swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 	  } 
 	}) 
-
 	  $('#footer div').eq(0).tap(function(){
 	     $('#footer div').css({'background':'#444','color':'#fff'})
 	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
