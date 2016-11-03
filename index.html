@@ -72,7 +72,6 @@
               <li>Jquery menu plugin、Jquery nav plugin、zepto emoji-expression-plugin等</li>
               <li>Fixed、Fulid、Flex、Responsive</li>
               <li>Javascript原生、Jquery及Zepto插件、AngularJs等</li>
-                <li> </li>
               <li> </li>
               <li> </li>
               <li> </li>
@@ -81,8 +80,8 @@
               <li> </li>
               <li> </li>
               <li> </li>
-              <li> </li> 
-             
+              <li> </li>
+              <li> </li>   
             </ul>
         </div>
     </div>
@@ -108,51 +107,51 @@
 		<input type='text' id='text'/>
 </div> 
 
-<!-- <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src='js/index.js'></script>
 <script>
-// $('#scan').on('click',function(){
-// 	$('#mainContent').css('display','none');
-// 	$('.saomiao').css('display','block');
+$('#scan').on('click',function(){
+	$('#mainContent').css('display','none');
+	$('.saomiao').css('display','block');
 	
-// })
+})
 			
-// // 扩展API加载完毕后调用onPlusReady回调函数 
-// 	document.addEventListener( "plusready", onPlusReady, false );
-// 	// 扩展API加载完毕，现在可以正常调用扩展API
-// 	function onPlusReady() {		
-// 		var e = document.getElementById("scan");
-// 		e.removeAttribute( "disabled" );	
-// 	}
-// 	var scan = null;
-// 	function onmarked( type, result ) {
-// 		var text = '未知: ';
-// 		switch(type){
-// 			case plus.barcode.QR:
-// 			text = 'QR: ';
-// 			break;
-// 			case plus.barcode.EAN13:
-// 			text = 'EAN13: ';
-// 			break;
-// 			case plus.barcode.EAN8:
-// 			text = 'EAN8: ';
-// 			break;
-// 		}
-// 		alert( text+result );
-// 	}
-// 	function startRecognize() {
-// 		scan = new plus.barcode.Barcode('bcid');
-// 		scan.onmarked = onmarked; 
-// 	}
-// 	function startScan() {
-// 		scan.start();
-// 	}
-// 	function cancelScan() {
-// 		scan.cancel();
-// 	}
-// 	function setFlash() {
-// 		scan.setFlash();
-// 	}	
+// 扩展API加载完毕后调用onPlusReady回调函数 
+	document.addEventListener( "plusready", onPlusReady, false );
+	// 扩展API加载完毕，现在可以正常调用扩展API
+	function onPlusReady() {		
+		var e = document.getElementById("scan");
+		e.removeAttribute( "disabled" );	
+	}
+	var scan = null;
+	function onmarked( type, result ) {
+		var text = '未知: ';
+		switch(type){
+			case plus.barcode.QR:
+			text = 'QR: ';
+			break;
+			case plus.barcode.EAN13:
+			text = 'EAN13: ';
+			break;
+			case plus.barcode.EAN8:
+			text = 'EAN8: ';
+			break;
+		}
+		alert( text+result );
+	}
+	function startRecognize() {
+		scan = new plus.barcode.Barcode('bcid');
+		scan.onmarked = onmarked; 
+	}
+	function startScan() {
+		scan.start();
+	}
+	function cancelScan() {
+		scan.cancel();
+	}
+	function setFlash() {
+		scan.setFlash();
+	}	
 
 		
 	
