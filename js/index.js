@@ -69,8 +69,8 @@
 	  	$('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
 	   	 var html = '';
-	     $('#footer div').css({'background':'#444','color':'#fff'})
-	      $(this).css({'background':'#e9e9e9','color':'#31B020'})
+	     $('#footer div').eq(0).css({'background':'#e9e9e9','color':'#31B020'});
+	     
 	    $.getJSON('./mock/skill.json?rand='+Math.random(),function(response){
 	    
 	      for(var i=0;i<response.length;i++){html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
@@ -94,7 +94,7 @@
 	  	SwiperAnimate.swiperAnimateCache(swiper); //隐藏动画元素 
 	    SwiperAnimate.swiperAnimate(swiper); //初始化完成开始动画
 	  }, 
-	  onSlideChangeEnd: function(swiper){ 
+	  	onSlideChangeEnd: function(swiper){ 
 	    SwiperAnimate.swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 	  } 
 	}) 	 
