@@ -68,7 +68,7 @@
 		$('#mainContent').show()
 	  $('.swiper-container').hide()
 	  //数据请求,然后请求api、skill，显示在浏览器上iScoll
-	  $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/skill.json'+Math.random();,{},function(response){
+	  $.getJSON('https://htmlzhoyan.github.io/jlresume/mock/skill.json'+Math.random(),{},function(response){
 	    var html = '';
 	    for(var i=0;i<response.length;i++){
 	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
