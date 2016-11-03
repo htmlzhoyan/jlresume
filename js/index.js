@@ -73,8 +73,6 @@
 	    for(var i=0;i<response.length;i++){
 	     html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
 	    }
-	    $.getJSON('./mock/project.json?rand='+Math.random(),function(response){
-
 	    var myScroll = new IScroll('#wrapper', {mouseWheel:true});
 	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);  
 	   
