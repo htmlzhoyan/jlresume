@@ -110,7 +110,7 @@
 	        html+='<li>'+'<div class="pics"><img src='+response[i].img+'></div>'+response[i].category+'-------------'+response[i].name+'</li>'
 	      }
 	      $('#scroller ul').html(html);
-?rand=
+
 	     
 	    })
 	  }); 
