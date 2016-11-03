@@ -63,6 +63,15 @@
 
 	$('#mainContent').hide()
 	$('.swiper-container').hide()
+
+	$('#enter').tap(function(){
+		$('#mainContent').show()
+	  $('.swiper-container').hide()
+	  
+	    
+	 
+	})
+
 	var Swiper = __webpack_require__(14);
 	//引入swiper animate
 	var SwiperAnimate = __webpack_require__(15);
