@@ -2,142 +2,299 @@
 <html lang="en">
 
 <head>
-    <title>个人简历</title>
-    <meta name="viewport" content="initial-scale=1">
-    <meta charset='utf-8'>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>宝宝app</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+    body {
+        min-height: 2000px;
+        padding-top: 70px;
+    }
+
+    </style>
 </head>
 
-<body>
-    <span id="preload"><canvas class="process" width="52px" height="52px">0%</canvas></span>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <canvas class="process" width="52px" height="52px">0%</canvas> 
-                <p class="ani"><img src="images/work.gif" style="width: 100%;"></p>
-                <p class="ani ani1" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" style="display:none">个</p>
-                <p class="ani ani1" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0s" style="display:none">人</p>
-                <p class="ani ani1" swiper-animate-effect="bounceInLeft" swiper-animate-duration="2s" swiper-animate-delay="0s" style="display:none">简</p>
-                <p class="ani ani1" swiper-animate-effect="bounceInLeft" swiper-animate-duration="2s" swiper-animate-delay="0s" style="display:none">历</p>
-                  
-                   <!--  <video src="movie.ogg" width='320' height='240' controls="controls"></video> --> 
-            </div>
-            <div class="swiper-slide">               
-               
-                <div class="flywrap">
-                    <div class="fly">
-                        
-                    </div>
-                
-                </div>  
-                <p class="anis">姓名：赵岩</p>
-                <p class="anis">年龄：24岁</p>
-                <p class="anis">寻找：web前端工作</p>
-            </div>
-            
-            <div class="swiper-slide">
-            
-                     <div class="box"><img src="images/my.png">
-                                    <button id="enter">查看详情</button>
-                     </div>
-                     
-                    
-              
-                    
-                
-              <!--   <div id="myStat" data-dimension="250" data-text="35%" data-info="New Clients" data-width="30" data-fontsize="38" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div> -->
+<body ng-app='foodModule'>
+    <ui-view></ui-view>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='js/jquery-1.12.4.js'></script>
+     <script type="text/javascript">
+      $('.navbar-right>li').on('click',function(){
+         $('.navbar-right>li').removeClass('active')
+        $(this).addClass('active')
+      })
+    </script>
+    <script type="text/javascript">
+    (function() {
+        'use strict';
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style')
+            msViewportStyle.appendChild(
+                document.createTextNode(
+                    '@-ms-viewport{width:auto!important}'
+                )
+            )
+            document.querySelector('head').appendChild(msViewportStyle)
+        }
+    })();
+    </script>
+    <script type="text/javascript" src='js/angular.js'></script>
+    <script type="text/javascript" src='js/angular-ui-router.min.js'></script>
+    <script type="text/javascript">
+    var foodApp = angular.module('foodModule', ['ui.router'])
+        .run(function($rootScope) {
+            $rootScope.foodPrefix = 'http://tnfs.tngou.net/image'
+        })
+        .config(function($stateProvider, $urlMatcherFactoryProvider, $locationProvider, $urlRouterProvider) {
+            $urlMatcherFactoryProvider.caseInsensitive(true);
+            $urlRouterProvider.otherwise('/navbar/home');
+            $stateProvider
+                .state('navbar', {
+                    url: '/navbar',
+                    templateUrl: 'template/navbar.html',
+                    controller: 'navbarController'
+                })
+
+            .state('navbar.home', {
+                    url: '/home',
+                    templateUrl: 'template/home.html',
+                    controller: 'homeController'
+                })
+                .state('navbar.foodList', {
+                    url: '/foodList/:id/:page',
+                    templateUrl: 'template/foodList.html',
+                    controller: 'foodListController'
+                })
+
+            .state('navbar.foodDetail', {
+                url: '/foodDetail/:id',
+                templateUrl: 'template/foodDetail.html',
+                controller: 'foodDetailController'
+            })
+
+            .state('navbar.city', {
+                url: '/city',
+                templateUrl: 'template/city.html',
+                controller: 'cityController'
+            })
+            .state('navbar.healthList',{
+              url:'/healthList/:id/:page',
+              templateUrl: 'template/healthList.html',
+              controller: 'heathListController'
+
+            })
+            .state('navbar.healthDetail',{
+                url:'/healthDetail/:id',
+                templateUrl:'template/healthDetail.html',
+                controller:'healthDetailController'
+            })
+            .state('navbar.news',{
+                url:'/news/:page',
+                templateUrl:'template/news.html',
+                controller:'newsController'
+            })
+
+        })
+        .controller('navbarController', function($scope, $http) {
+
+            $http({
+                url: 'http://localhost/index.php',
+                method: 'get',
+
+            }).then(function(response) {
                  
-            </div>
-        </div>
+                $scope.foodCategory = response.data.tngou;
+            })
 
-    </div>
+            $http({
+             url: 'http://localhost/food_index.php',
+             method:'get',
+             }).then(function(response){
+              // console.log(response.data.tngou)
+              $scope.healthCategory = response.data.tngou;
+             })
 
-<div id="mainContent">
-    <div id="header">
-    	
- <span class="iconfont" id="scan" disabled="disabled">&#xe602;</span>
-    简历
-    <span class="iconfont" id="btns">&#xe628;</span>
-    </div>
+
+
+
+        })
+        .controller('homeController', function($scope) {
+            $scope.navbarMsg = 'navbar';
+        })
+       
     
-    	
-    <div id="wrapper">
-        <div id="scroller">
-            <ul>
+          
+       
+
+    .controller('cityController', function($scope, $http, $stateParams) {
+
+        $scope.city = '';
+        
+        $scope.send = function() {
+          var params = {
+            c: $scope.city
+        }
+            $http({
+                url: 'http://localhost/city.php',
+                method: 'get',
+                params: params
+            }).then(function(response) {
+                if(response.data.status==0){
+                    $scope.cityCategoryx =''
+                     $scope.cityCategoryy =''
+                    if($scope.city==''){
+                      $scope.warn='请输入城市名'
+                    }else{
+                      $scope.warn='请输入正确的城市名'
+                    }
+                                 
+                }else{
+                $scope.warn=''
+                  $scope.cityCategoryx = "x坐标为:" + response.data.x;
+                  $scope.cityCategoryy = "y坐标为:" + response.data.y;
+                }
+            
                 
-            </ul>
-        </div>
-    </div>
-    <div id="footer">
-        <div class="button" id="skill">
-        <span class="iconfont">&#xe613;</span>技能</div>
-        <div class="button" id="project">
-        <span class="iconfont">&#xe6d1;</span>作品</div>
-        <div class="button" id="work">
-        <span class="iconfont">&#xe6dc;</span>经历</div>
-        <div class="button" id="interest">
-        <span class="iconfont">&#xe600;</span>爱好</div>
-        <div class="button" id="myself">
-        <span class="iconfont">&#xe607;</span>关于我</div>
-    </div> 
-</div>
-<div class="saomiao" style="display: none;">
-    	<input type='button' onclick='startRecognize()' value='创建扫描控件' style="height:30px;"/>
-		<input type='button' onclick='startScan()' value='开始扫描' style="height:30px;"/>
-		<input type='button' onclick='cancelScan()' value='取消扫描' style="height:30px;"/>
-		<input type='button' onclick='setFlash()' value='开启闪光灯' style="height:30px;"/>
-		<div id= "bcid"></div>
-		<input type='text' id='text'/>
-</div> 
-
-<script type="text/javascript" src='js/index.js'></script>
-<script>
-
-			
-// 扩展API加载完毕后调用onPlusReady回调函数 
-	document.addEventListener( "plusready", onPlusReady, false );
-	// 扩展API加载完毕，现在可以正常调用扩展API
-	function onPlusReady() {		
-		var e = document.getElementById("scan");
-		e.removeAttribute( "disabled" );	
-	}
-	var scan = null;
-	function onmarked( type, result ) {
-		var text = '未知: ';
-		switch(type){
-			case plus.barcode.QR:
-			text = 'QR: ';
-			break;
-			case plus.barcode.EAN13:
-			text = 'EAN13: ';
-			break;
-			case plus.barcode.EAN8:
-			text = 'EAN8: ';
-			break;
-		}
-		alert( text+result );
-	}
-	function startRecognize() {
-		scan = new plus.barcode.Barcode('bcid');
-		scan.onmarked = onmarked; 
-	}
-	function startScan() {
-		scan.start();
-	}
-	function cancelScan() {
-		scan.cancel();
-	}
-	function setFlash() {
-		scan.setFlash();
-	}	
-
-		
-	
-</script>
+            })
+        }
+    })
+    .controller('newsController',function($scope,$http,$stateParams){
+        var num = 21;
+        var params={
+            page: $stateParams.page,
+            num:num
+        }
+        $http({
+            url:'http://localhost/news.php',
+            method:'get',
+            params:params
+        }).then(function(response){
+          
+            
+            // $scope.newsPageCount = Math.ceil(response.data.total / num);
+            //  var pageCountList = [];
+            //     for (var i = 1; i < Math.ceil(response.data.total / num); i++) {
+            //         pageCountList.push(i);
+            //     }
+            // $scope.newsPageCount = pageCountList;
+             // console.log(response)
+                //返回菜品列表的数据
+                 $scope.newsListsCategory=response.data.newslist
+                //设置分类的id
+                 // $scope.newsCateId = $stateParams.page;
+                //确定分页数，但是foodListPagecount是一个数值，他不是一个对象，所以我么的需要将页面转化成对
+                $scope.newsListsPageCount = Math.ceil(response.data.code / num);
+                //如果想要把上面三行代码进行优化，可以进行对象的封装
+                //  var foodLists=
+                // })
+                  console.log(response.data.newslist)
+                var pageCountList = [];
+                for (var i = 1; i < Math.ceil(response.data.code / num); i++) {
+                    pageCountList.push(i);
+                }
+                $scope.newsListsPageCount = pageCountList;
 
 
+        })
+    })
+    
 
+    .controller('foodListController', function($scope, $http, $stateParams) {
+            var rows = 30;
+            var params = {
+                id: $stateParams.id,
+                page: $stateParams.page,
+                rows: rows
+
+            }
+            $http({
+                url: 'http://localhost/list.php',
+                method: 'get',
+                params: params
+            }).then(function(response) {
+                // console.log(response)
+                //返回菜品列表的数据
+                $scope.foodLists = response.data.tngou;
+                //设置分类的id
+                $scope.foodCateId = $stateParams.id;
+                //确定分页数，但是foodListPagecount是一个数值，他不是一个对象，所以我么的需要将页面转化成对
+                $scope.foodListsPageCount = Math.ceil(response.data.total / rows);
+                //如果想要把上面三行代码进行优化，可以进行对象的封装
+                //  var foodLists=
+                // })
+                var pageCountList = [];
+                for (var i = 1; i < Math.ceil(response.data.total / rows); i++) {
+                    pageCountList.push(i);
+                }
+                $scope.foodListsPageCount = pageCountList;
+
+            })
+        })
+
+         //healthlist菜单列表
+       .controller('heathListController',function($scope,$http,$stateParams){
+            var rows = 9;
+            var params = {
+              id:$stateParams.id,
+              page:$stateParams.page,
+              rows:rows
+            } 
+             $http({
+              url:'http://localhost/healthList.php',
+              method:'get',
+              params:params
+             }).then(function(response){
+                $scope.healthList=response.data.tngou;
+                $scope.healthCateId=$stateParams.id;
+                $scope.healthListsPageCount=Math.ceil(response.data.total/rows);
+                var pageCountList=[];
+                for(var i=1;i<Math.ceil(response.data.total/rows);i++){
+                  pageCountList.push(i);
+                }
+                $scope.healthListsPageCount = pageCountList
+             })
+       })
+        .controller('foodDetailController', function($scope, $http, $stateParams, $sce) {
+
+            $http({
+                url: 'http://localhost/detail.php',
+                method: 'get',
+                params: {
+                    id: $stateParams.id
+                }
+
+            }).then(function(res) {
+
+                $scope.detail = res.data;
+                $scope.html = $sce.trustAsHtml($scope.detail.message)
+
+
+            })
+        })
+        .controller('healthDetailController',function($scope,$http,$stateParams,$sce){
+            $http({
+                url:'http://localhost/healthDetail.php',
+                method:'get',
+                params:{
+                    id: $stateParams.id
+                }
+            }).then(function(res){
+                 $scope.detail = res.data;
+                $scope.html = $sce.trustAsHtml($scope.detail.message)
+                console.log(res.data)
+            })
+        })
+    </script>
 </body>
 
 </html>

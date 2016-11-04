@@ -1,0 +1,24 @@
+<div class="row featurette featurettes">
+        <div class="col-md-5" style="width: 30%">
+        <img ng-src="{{foodPrefix}}{{detail.img}}" class="img-responsive" alt="Generic placeholder thumbnail">
+        <p style="text-align: center;margin-top: 30px;"><a style="200px" class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="history.back();" >
+       返回详情列表
+    </a></p>
+        </div>
+        <div class="col-md-7">
+          <h1 class="featurette-heading" style="color:#41AE92">{{detail.name}} <span class="text-muted"></span></h1>
+          <p class="lead" ng-bind-html="html"></p>
+        </div>
+</div>
+<style type="text/css">
+
+  .featurettes{
+      display: flex;
+      justify-content: space-around;
+
+  }
+   .featurettes img{
+      width: 100%;
+      margin-top: 50px;
+   }
+</style>

@@ -1,0 +1,40 @@
+<div class="container marketing" style="font-size: 12px;text-align: center;">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row"  ng-repeat='health in healthList' ng-if='$index % 3== 0'>
+        <div class="col-lg-4" ng-if='healthList[$index].id != undefined'>
+
+          <img class="img-circle" ng-src="{{foodPrefix}}{{healthList[$index].img}}" alt="{{healthList[$index].keywords}}" style="width: 140px; height: 140px;">
+          <h2>{{healthList[$index].name}}</h2>
+          <p>{{healthList[$index].description}}</p>
+          <p><a class="btn btn-default" href="#/navbar/healthDetail/{{healthList[$index].id}}" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+     
+        <div class="col-lg-4" ng-if='healthList[$index+1].id != undefined'>
+          <img class="img-circle" ng-src="{{foodPrefix}}{{healthList[$index+1].img}}" alt="{{healthList[$index+1].keywords}}" style="width: 140px; height: 140px;">
+          <h2>{{healthList[$index+1].name}}</h2>
+          <p>{{healthList[$index+1].description}}</p>
+          <p><a class="btn btn-default" href="#/navbar/healthDetail/{{healthList[$index+1].id}}" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+       
+       <div class="col-lg-4" ng-if='healthList[$index+2].id != undefined'>
+
+          <img class="img-circle" ng-src="{{foodPrefix}}{{healthList[$index+2].img}}" alt="{{healthList[$index+2].keywords}}" style="width: 140px; height: 140px;">
+          <h2>{{healthList[$index+2].name}}</h2>
+          <p>{{healthList[$index+2].description}}</p>
+          <p><a class="btn btn-default" href="#/navbar/healthDetail/{{healthList[$index+2].id}}" role="button">查看详情 &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+
+
+      </div><!-- /.row -->
+</div>
+
+  <nav style="text-align: center;">
+  <ul class="pagination">
+ 
+  
+    <li ng-repeat='p in healthListsPageCount'><a href="#/navbar/healthList/{{healthCateId}}/{{p}}">{{p}}</a></li>
+
+
+  </ul>
+</nav>

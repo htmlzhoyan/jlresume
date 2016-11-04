@@ -1,0 +1,20 @@
+<div class="row" style="width: 80%; margin:0 auto;overflow: hidden;border:1px solid #ccc;border-right: 0;border-bottom: 0">
+            
+
+            <div class="col-xs-6 col-lg-4" ng-repeat='news in newsListsCategory' style="border-right:1px solid #ccc;border-bottom: 1px solid #ccc;">
+              <h5>{{news.description}}</h5>
+              <p style="color: #e9e9e;height: 40px;">{{news.title}}</p>
+              <p><a class="btn btn-default" href="{{news.url}}" role="button">查看详情</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+          
+</div>
+
+  <nav style="text-align: center;">
+  <ul class="pagination">
+ 
+  
+    <li ng-repeat='p in newsListsPageCount'><a href="#/navbar/news/{{p}}">{{p}}</a></li>
+
+
+  </ul>
+</nav>
